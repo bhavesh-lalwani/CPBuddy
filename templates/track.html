@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/jpg" href="static/CP_Buddy.jpg">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" integrity="sha384-dpuaG1suU0eT09tx5plTaGMLBsfDLzUCCUXOY2j/LSvXYuG6Bqs43ALlhIqAJVRb" crossorigin="anonymous">
+
+    <title>CP Buddy</title>
+    <style>
+      
+      html {
+          height: 100%;
+          margin: 0;
+          overflow: hidden;
+          background: radial-gradient(circle, #ff4b1f, #1f1c18) center center, 
+                      linear-gradient(135deg, #1f1c18, #ff4b1f, #1f1c18) top left,
+                      linear-gradient(-45deg, #1f1c18, #ff4b1f, #1f1c18) top right,
+                      linear-gradient(45deg, #1f1c18, #ff4b1f, #1f1c18) bottom left,
+                      linear-gradient(-135deg, #1f1c18, #ff4b1f, #1f1c18) bottom right;
+          background-size: 100% 100%, 50% 50%, 50% 50%, 50% 50%, 50% 50%; /* Adjust gradient sizes */
+          background-repeat: no-repeat;
+      }
+
+      .content {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap; /* Wrap cards to next line if they don't fit */
+          margin: auto;
+          overflow: hidden;
+          background: radial-gradient(circle, #ff4b1f, #1f1c18) center center, 
+                      linear-gradient(135deg, #1f1c18, #ff4b1f, #1f1c18) top left,
+                      linear-gradient(-45deg, #1f1c18, #ff4b1f, #1f1c18) top right,
+                      linear-gradient(45deg, #1f1c18, #ff4b1f, #1f1c18) bottom left,
+                      linear-gradient(-135deg, #1f1c18, #ff4b1f, #1f1c18) bottom right;
+          background-size: 100% 100%, 50% 50%, 50% 50%, 50% 50%, 50% 50%; /* Adjust gradient sizes */
+          background-repeat: no-repeat;
+      }
+
+      #inp {
+        margin: auto;
+        justify-content: center;
+      }
+      .btn {
+        background-color:black;
+        display: inline-block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+      }
+
+      .quote {
+        display: flex;
+        flex-basis: 100%;
+        font-family: "Roboto", sans-serif;
+        font-weight: bold;
+        font-size: 34px;
+        color: beige;
+        margin: auto;
+        font-style: italic;
+        align-content: space-around;
+        justify-content: center;
+        float: right;
+      }
+
+      .card {
+        margin: 10px; /* Adjust margin between cards */
+        border-radius: 10px; 
+        overflow: hidden;
+        flex: 1 0 300px; /* Set flex-grow, flex-shrink, and flex-basis */
+        max-width: 350px;
+      }
+
+      .box {
+        display: flex;        
+      }
+
+      .rainbow-text {
+          background-image: linear-gradient(to right, blue, purple, magenta);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          font-size: 3rem;
+          text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-black">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white" href="#"><img src="{{ url_for('static', filename='CP_Buddy.jpeg') }}" width="25px" alt=""> Competitive Programming Buddy</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <form action="/" method="POST">
+              <button class="nav-link text-white" name="home">Home</button>
+            </form>
+            <form action="/Track" method="POST">
+              <button class="nav-link text-white" name="track">Track</button>
+            </form>
+            <form action="/AI-Buddy" method="POST">
+              <button class="nav-link text-white" name="aibuddy">AI-Buddy</button>
+            </form>
+            <form action="/Community" method="POST">
+              <button class="nav-link text-white" name="community">Community</button>
+            </form>
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="content">
+
+      <div class="card" style="width: 18rem;">
+        <img src="{{ url_for('static', filename='CP_Buddy.jpeg') }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title rainbow-text">Analyze</h3>
+          <p class="card-text">Gain profound insights into your Codeforces profile with comprehensive statistics. Strategize to achieve your goals effectively.</p>
+        </div>
+        <div id="inp">
+          <form action="/Track/Results" method="POST">
+            <label for="handle"></label>
+            <input width="200px" length="100px" class="box" type="search" placeholder="Enter codeforces handle" name="handle">
+            <button class="btn btn-outline-dark text-light" type="submit">Analyze & Grow</button>
+            <button class="btn btn-outline-dark text-light" type="submit"><img src="{{ url_for('static', filename='cf_logo.png') }}" width="15px" alt=""></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <img src="{{ url_for('static', filename='compare.jpeg') }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title rainbow-text">Compare</h3>
+          <p class="card-text">Compare with peers or inspirations. Obtain detailed insights into practice methods and other nuances for enhanced performance analysis and improvement.</p>
+        </div>
+        <div id="inp">
+          <form action="/Track/Results" method="POST">
+            <label for="handle1"></label>
+            <input width="200px" length="100px" class="box" type="search" placeholder="Enter codeforces handle" name="handle">
+            <label for="handle2"></label>
+            <input width="200px" length="100px" class="box" type="search" placeholder="Enter codeforces handle" name="handle">
+            <button class="btn btn-outline-dark text-light" type="submit">Compare & Track</button>
+            <button class="btn btn-outline-dark text-light" type="submit"><img src="{{ url_for('static', filename='cf_logo.png') }}" width="15px" alt=""></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <img src="{{ url_for('static', filename='ai_buddy.jpeg') }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title rainbow-text">Resolve</h3>
+          <p class="card-text">Still unsure? Seek advice from our official AI assistant, AI-Buddy, for the best recommendations and guidance.</p>
+        </div>
+        <div id="inp">
+          <form action="/Track/Results" method="POST">
+            <label for="handle"></label>
+            <input width="200px" length="100px" class="box" type="search" placeholder="Enter codeforces handle" name="handle">
+            <button class="btn btn-outline-dark text-light " type="submit">Ask AI-Buddy</button>
+            <button class="btn btn-outline-dark text-light" type="submit"><img src="{{ url_for('static', filename='cf_logo.png') }}" width="15px" alt=""></button>
+          </form>
+        </div>
+      </div>
+      
+
+      <div class="quote">
+        <p>" In the world of programming, the only limit is your imagination. "</p>
+      </div>
+
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+     -->
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+  
+  </body>
+</html>
