@@ -105,6 +105,10 @@
       }
     {% endfor %}
 
+    .nm{
+      font-weight: bolder;
+    }
+
     </style>
 
   </head>
@@ -153,8 +157,8 @@
               <h3 class="titleColour">{{ user['rank'].title() }}</h3>
               <h3 class="firstLetter inline-block">{{ user['handle'][0]}}</h3><h3 class="titleColour inline-block">{{user['handle'][1:] }}</h3>
               <img class="new-line pf" src="{{user['titlePhoto']}}" alt="">
-              <p class="nm">{{ user['firstName'] }} {{ user['lastName'] }}, {{ user['city'] }}, {{ user['country'] }}</p>
-              <p class="frm">from {{ user['organization'] }}</p>
+              <p class="nm ">{{ user['firstName'] }} {{ user['lastName'] }}, {{ user['city'] }}, {{ user['country'] }}</p>
+              <p class="frm">From {{ user['organization'] }}</p>
               <p class="rat inline-block">Rating:</p>
               <p class="titleColour inline-block">{{ user['rating'] }}</p>
               <p class="rat inline-block">(Max. <p class="maxTitleColour inline-block">{{ user['maxRank'] }}, {{ user['maxRating'] }}</p>) 
@@ -183,10 +187,23 @@
             <h3>Problem ratings of {{ user['handle'] }}</h3>
             <div id="bar-chart" class="chart">{{ ratings_bar | safe }}</div>
         </div>
-        <div class="pie-chart-card">
+        <div class="bar-chart-card">
             <h3>Tags of {{ user['handle'] }}</h3>
-            <div id="pie-chart3" class="chart"> {{ tags_bar | safe }} </div>
+            <div id="bar-chart" class="chart"> {{ tags_bar | safe }} </div>
         </div>
+        <div class="bar-chart-card">
+          <h3>Time of {{ user['handle'] }}</h3>
+          <div id="bar-chart" class="chart"> {{ time_bar | safe }} </div>
+        </div>
+        <div class="bar-chart-card">
+          <h3>Time of {{ user['handle'] }}</h3>
+          <div id="bar-chart" class="chart"> {{ time_index_bar | safe }} </div>
+        </div>
+        <div class="bar-chart-card">
+          <h3>Scatter plot of {{ user['handle'] }}</h3>
+          <div id="bar-chart" class="chart"> {{ scatter_plot | safe }} </div>
+        </div>
+      </div>
       </div>
       
       {% endfor %}
