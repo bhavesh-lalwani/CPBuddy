@@ -3,12 +3,12 @@ import requests, statistics, plotly.graph_objs as go
 from datetime import datetime
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return render_template('index.html')
+#@app.route('/')
+#def home():
+#    return render_template('index.html')
 
 @app.route('/', methods = ['POST'])
-def Home():
+def home():
     return render_template('index.html')
 
 @app.route('/Track', methods=['POST'])
