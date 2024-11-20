@@ -7,19 +7,19 @@ app = Flask(__name__)
 #def home():
 #    return render_template('index.html')
 
-@app.route('/', methods = ['POST'])
+@app.route('/', methods = ['GET','POST'])
 def home():
     return render_template('index.html')
 
-@app.route('/Track', methods=['POST'])
+@app.route('/Track', methods=['GET','POST'])
 def track():
     return render_template('track.html')
 
-@app.route('/AI-Buddy', methods = ['POST'])
+@app.route('/AI-Buddy', methods = ['GET','POST'])
 def aibuddy():
     return render_template('aibuddy.html')
 
-@app.route('/Community', methods=['POST'])
+@app.route('/Community', methods=['GET','POST'])
 def community():
     return render_template('community.html')
 
